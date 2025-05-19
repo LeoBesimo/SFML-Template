@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <memory>
+#include <chrono>
 
 #include "Graphics/Window.hpp"
 

@@ -12,10 +12,20 @@ Core::Application::~Application()
 
 void Core::Application::start()
 {
+	init();
+
 	running = true;
+
+	using Clock = std::chrono::high_resolution_clock;
+	auto lastTime = Clock::now();
+	auto currentTime = Clock::now();
+	float deltaTime = 1;
 
 	while (running) 
 	{
+		currentTime = Clock::now();
+		deltaTime = std::chrono::duration<float>(currentTime - lastTime).count();
+		lastTime = currentTime;
 
 		for (std::shared_ptr<Window> window : m_Windows)
 		{
@@ -34,10 +44,10 @@ void Core::Application::start()
 
 		for (std::shared_ptr<Window> window : m_Windows) 
 		{
-			window->clear();
+			//window->clear();
 		}
 
-		update(1);
+		update(deltaTime);
 
 		for (std::shared_ptr<Window> window : m_Windows) {
 			window->display();

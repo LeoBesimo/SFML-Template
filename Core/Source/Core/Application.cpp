@@ -30,10 +30,14 @@ void Core::Application::start()
 		for (std::shared_ptr<Window> window : m_Windows)
 		{
 			while (std::optional<sf::Event> event = window->pollEvent()) {
+				ImGui::SFML::ProcessEvent(*window, event.value());
+
 				if (event->is<sf::Event::Closed>()) {
+					ImGui::SFML::Shutdown(*window);
 					window->close();
 					window->closed = true;
 				}
+				handleWindowEvent(window, event);
 			}
 		}
 
@@ -45,11 +49,16 @@ void Core::Application::start()
 		for (std::shared_ptr<Window> window : m_Windows) 
 		{
 			//window->clear();
+			ImGui::SFML::Update(*window, sf::seconds(deltaTime));
+
 		}
 
-		update(deltaTime);
+		if(m_Windows.size() > 0)
+			update(deltaTime);
 
 		for (std::shared_ptr<Window> window : m_Windows) {
+			ImGui::SFML::Render(*window);
+
 			window->display();
 		}
 
@@ -63,12 +72,17 @@ std::shared_ptr<Core::Window> Core::Application::createWindow(unsigned int width
 {
 	std::shared_ptr<Window> window = std::make_shared<Window>(width, height, windowName);
 	m_Windows.push_back(window);
-
+	ImGui::SFML::Init(*window);
 	return window;
 }
 
 void Core::Application::init()
 {
+}
+
+void Core::Application::handleWindowEvent(std::shared_ptr<Core::Window> window, std::optional<sf::Event> &event)
+{
+
 }
 
 void Core::Application::update(float dt)

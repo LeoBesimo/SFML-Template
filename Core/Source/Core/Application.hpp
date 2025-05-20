@@ -5,6 +5,7 @@
 #include <chrono>
 
 #include "Graphics/Window.hpp"
+#include "ImGui/imgui-SFML.h"
 
 namespace Core
 {
@@ -19,6 +20,7 @@ namespace Core
 		std::shared_ptr<Window> createWindow(unsigned int width, unsigned int height, std::string windowName);
 
 		virtual void init();
+		virtual void handleWindowEvent(std::shared_ptr<Window> window, std::optional<sf::Event> &event);
 		virtual void update(float dt);
 		virtual void destroy();
 

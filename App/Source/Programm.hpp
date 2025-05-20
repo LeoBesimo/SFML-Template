@@ -10,6 +10,7 @@ public:
 	App();
 
 	void init() override;
+	void handleWindowEvent(std::shared_ptr<Core::Window> window, std::optional<sf::Event> &event);
 	void update(float dt) override;
 	void destroy() override;
 

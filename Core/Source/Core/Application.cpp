@@ -1,4 +1,6 @@
 #include "Application.hpp"
+#include "Utils/Console.hpp"
+#include <iostream>
 
 Core::Application::Application()
 {
@@ -74,7 +76,10 @@ std::shared_ptr<Core::Window> Core::Application::createWindow(unsigned int width
 {
 	std::shared_ptr<Window> window = std::make_shared<Window>(width, height, windowName);
 	m_Windows.push_back(window);
-	ImGui::SFML::Init(*window);
+	if (!ImGui::SFML::Init(*window))
+	{
+		std::cout << Console::Foreground::RED << "ImGui Could not Be Initialized\n" << Console::Foreground::WHITE;
+	}
 	return window;
 }
 

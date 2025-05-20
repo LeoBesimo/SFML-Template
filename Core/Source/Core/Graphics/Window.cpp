@@ -25,6 +25,7 @@ void Core::Window::rect(float x, float y, float width, float height)
 	m_RectangleShape.setSize(sf::Vector2f(width, height));
 	m_RectangleShape.setFillColor(m_FillColor);
 	m_RectangleShape.setOutlineColor(m_StrokeColor);
+	m_RectangleShape.setOutlineThickness(1.f);
 
 	draw(m_RectangleShape);
 }
@@ -42,7 +43,8 @@ void Core::Window::circle(float x, float y, float radius)
 	m_CircleShape.setPosition(sf::Vector2f(x - radius, y - radius));
 	m_CircleShape.setRadius(radius);
 	m_CircleShape.setFillColor(m_FillColor);
-	m_CircleShape.setOutlineColor(m_StrokeColor);
+	m_CircleShape.setOutlineColor(sf::Color::Red);	
+	m_CircleShape.setOutlineThickness(1.f);
 
 	draw(m_CircleShape);
 }

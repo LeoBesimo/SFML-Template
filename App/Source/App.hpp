@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Core/Core.h>
+#include <iostream>
 
 class App :
 	public Core::Application

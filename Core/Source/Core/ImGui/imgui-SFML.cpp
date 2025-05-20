@@ -350,6 +350,7 @@ bool Init(sf::Window& window, const sf::Vector2f& displaySize, bool loadDefaultF
 
 void SetCurrentWindow(const sf::Window& window)
 {
+    if (!window.isOpen()) return;
     auto found = std::find_if(s_windowContexts.begin(),
                               s_windowContexts.end(),
                               [&](std::unique_ptr<WindowContext>& ctx)

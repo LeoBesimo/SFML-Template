@@ -37,6 +37,10 @@ void Core::Application::start()
 					window->close();
 					window->closed = true;
 				}
+				
+				if (event->is<sf::Event::MouseMoved>()) {
+					window->MousePosition = sf::Mouse::getPosition(*window);
+				}
 				handleWindowEvent(window, event);
 			}
 		}
@@ -48,9 +52,7 @@ void Core::Application::start()
 
 		for (std::shared_ptr<Window> window : m_Windows) 
 		{
-			//window->clear();
 			ImGui::SFML::Update(*window, sf::seconds(deltaTime));
-
 		}
 
 		if(m_Windows.size() > 0)

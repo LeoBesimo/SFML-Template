@@ -17,4 +17,5 @@ public:
 
 private:
 	std::shared_ptr<Core::Window> windowPtr;
+	std::shared_ptr<Core::Window> wind2;
 };

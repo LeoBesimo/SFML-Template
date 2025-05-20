@@ -10,6 +10,9 @@ namespace Core
 		friend class Application;
 
 	public:
+
+		sf::Vector2i MousePosition;
+
 		Window();
 		Window(unsigned int width, unsigned int height);
 		Window(unsigned int width, unsigned int height, std::string windowName);
@@ -33,5 +36,6 @@ namespace Core
 		sf::CircleShape m_CircleShape;
 		sf::RectangleShape m_RectangleShape;
 		sf::Vertex m_Line[2];
+
 	};
 }

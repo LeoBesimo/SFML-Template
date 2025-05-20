@@ -8,6 +8,8 @@ The `Scripts/` directory contains build scripts for Windows and Linux, and the `
 
 The projects already statically link [SFML 3.0.0](https://www.sfml-dev.org/) and include [Dear ImGui](https://github.com/ocornut/imgui) and [ImGui SFML](https://github.com/SFML/imgui-sfml) bindings
 
+This template repository uses the [Project Template](https://github.com/TheCherno/ProjectTemplate) from [TheCherno](https://www.youtube.com/TheChernoProject).
+
 ## Getting Started
 1. Clone this repository or use the "Use this template" button on GitHub to quickly set up your own repository based on this template
 2. `App/` and `Core/` are the two projects - you can edit the names of these folders and their contents to suit

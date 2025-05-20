@@ -10,7 +10,7 @@ project "Core"
    includedirs
    {
       "Source",
-      "$(SolutionDir)Vendor/Binaries/SFML-3.0.0/include"
+      "../Vendor/Binaries/SFML-3.0.0/include"
    }
 
     libdirs

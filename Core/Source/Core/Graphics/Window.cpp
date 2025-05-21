@@ -43,7 +43,7 @@ void Core::Window::circle(float x, float y, float radius)
 	m_CircleShape.setPosition(sf::Vector2f(x - radius, y - radius));
 	m_CircleShape.setRadius(radius);
 	m_CircleShape.setFillColor(m_FillColor);
-	m_CircleShape.setOutlineColor(sf::Color::Red);	
+	m_CircleShape.setOutlineColor(m_StrokeColor);	
 	m_CircleShape.setOutlineThickness(1.f);
 
 	draw(m_CircleShape);
@@ -60,7 +60,7 @@ void Core::Window::noFill()
 }
 
 void Core::Window::stroke(int r, int g, int b, int alpha)
-{	
+{
 	m_StrokeColor = sf::Color(r, g, b, alpha);
 }
 
